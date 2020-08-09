@@ -1,3 +1,3 @@
 import ctypes
 
-WIDTH, HEIGHT = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
+WIDTH, HEIGHT = int(ctypes.windll.user32.GetSystemMetrics(0)/2), int(ctypes.windll.user32.GetSystemMetrics(1)/2)
