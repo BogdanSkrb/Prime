@@ -19,6 +19,14 @@ class Screen:
     def fill(self):
         return self._display.fill((30, 30, 30))
 
+    @property
+    def width(self):
+        return self.size[0]
+
+    @property
+    def height(self):
+        return self.size[1]
+
 
 class App:
     def __init__(self):
@@ -30,7 +38,7 @@ class App:
         self.screen = Screen()
         self._running = True
 
-        self.object_list = [being.Being(self.screen)]
+        self.object_list = [being.Being(self.screen) for i in range(10)]
  
     def on_event(self, event):
         if event.type == pygame.QUIT:

@@ -1,15 +1,12 @@
 import pygame as pg
+import random
 
-from services.resources import ResourcesService
+from objects.abs_objects import GameObject
 
-class Being:
+class Being(GameObject):
+    image_path = r'beings\human_being.png'
+
     def __init__(self, screen):
-        self._screen = screen
-        resources = ResourcesService(r'beings\human_being.png')
-        self._image = pg.image.load(resources.path).convert_alpha()
-        self._rect = self._image.get_rect()
-        self._rect.x = 100
-        self._rect.y = 200
-
-    def render(self):
-        self._screen.blit(self._image, self._rect)
+        super().__init__(screen)
+        self._rect.x = random.choice([int(i) for i in range(0, self._screen.width, 10)])
+        self._rect.y = random.choice([int(i) for i in range(0, self._screen.height, 10)])
